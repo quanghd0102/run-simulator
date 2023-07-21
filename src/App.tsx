@@ -1,10 +1,13 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { Provider } from 'react-redux';
+import MapboxGL from '@rnmapbox/maps';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { store, persistor } from './store';
 import ApplicationNavigator from './navigators/Application';
 import './translations';
+
+MapboxGL.setAccessToken(process.env.MAPBOX_PUBLIC_KEY || '');
 
 const App = () => (
   <Provider store={store}>
